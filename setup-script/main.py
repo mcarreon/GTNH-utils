@@ -1,11 +1,34 @@
-from input import *
+import json
 
-serverWorkdir = input("Enter base directory of GTNH server installation: ")
-clientWorkdir = input("Enter base directory of GTNH client installation: ")
+from options import *
+from utils import *
+from patch import *
+from pathlib import Path
 
-shouldPatchConfigs = get_boolean_input("Should the script patch configs (y/n): ")
-shouldInstallMods = get_boolean_input("Should the script install utility mods (y/n): ")
-shouldInstallShaders = get_boolean_input("Should the script install shaders (y/n): ")
-shouldInstallResourcePacks = get_boolean_input("Should the script install resource packs (y/n): ")
+# config_path = './configs/test_config.json'
+config_path = './configs/patch_config.json'
 
+options = Options("./test/server", "./test/client", True, True, True, True)
 
+# options = get_options()
+
+with open(config_path, 'r', encoding='utf-8') as data:
+    patch_config = json.load(data)
+
+for target in patch_config:
+    print_color(f'###### starting patching for {target['target']} ######', 'green')
+
+    if len(target['patches']) == 0 or target.get('patches', {}) == {}:
+        print_color(f'no patches found for {target['target']}', 'red')
+        continue
+
+    for patch in target['patches']:
+        workdir = options.get_workdir(target['target'])
+        patch_path = Path(f'{workdir}/{patch["filepath"]}')
+        print(f'patching file at path: {patch_path}')
+
+        if not patch_path.exists():
+            print_color(f'could not find file at patch: {patch_path}', 'red')
+            continue
+
+        patch_cfg(patch_path, patch['changes'])

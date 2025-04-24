@@ -1,0 +1,196 @@
+[
+  {
+    "target": "server",
+    "GTNHVersion": "2.7.4",
+    "patches": [
+      {
+        "filepath": "config/RTG/rtg.cfg",
+        "changes": [
+          {
+            "base": "I:\"1/x chance that Lava Surface Lakes will generate if given the opportunity to do so during world gen\"=10",
+            "override": "I:\"1/x chance that Lava Surface Lakes will generate if given the opportunity to do so during world gen\"=8"
+          },
+          {
+            "base": "I:\"1/x chance that Water Surface Lakes will generate if given the opportunity to do so during world gen\"=10",
+            "override": "I:\"1/x chance that Water Surface Lakes will generate if given the opportunity to do so during world gen\"=8"
+          },
+          {
+            "base": "S:\"Lake Frequency Multiplier\"=1.5",
+            "override": "S:\"Lake Frequency Multiplier\"=1.5"
+          },
+          {
+            "base": "S:\"Lake Shore Irregularity\"=1.5",
+            "override": "S:\"Lake Shore Irregularity\"=1.5"
+          },
+          {
+            "base": "S:\"Multiplier to River Bending\"=2.0",
+            "override": "S:\"Multiplier to River Bending\"=2.0"
+          },
+          {
+            "base": "S:\"River Frequency Multiplier\"=1.5",
+            "override": "S:\"River Frequency Multiplier\"=1.5"
+          },
+          {
+            "base": "S:\"River Width Multiplier\"=1.5",
+            "override": "S:\"River Width Multiplier\"=2.0"
+          }
+        ]
+      },
+      {
+        "filepath": "config/defaultworldgenerator.cfg",
+        "changes": [
+          {
+            "base": "S:\"World Generator\"=RWG",
+            "override": "S:\"World Generator\"=RTG"
+          }
+        ]
+      },
+      {
+        "filepath": "server.properties",
+        "changes": [
+          {
+            "base": "level-type=rwg",
+            "override": "level-type=rtg"
+          }
+        ]
+      },
+      {
+        "filepath": "config/climatecontrol.cfg",
+        "changes": [
+          {
+            "base": "I:\"Biome Size\"=4",
+            "override": "I:\"Biome Size\"=5"
+          },
+          {
+            "base": "B:NoBoPSubBiomes=true",
+            "override": "B:NoBoPSubBiomes=false"
+          },
+          {
+            "base": "B:WiderRivers=false",
+            "override": "B:WiderRivers=true"
+          },
+          {
+            "base": "B:forceStartContinent=true",
+            "override": "B:forceStartContinent=true"
+          },
+          {
+            "base": "B:wideBeaches=false",
+            "override": "B:wideBeaches=true"
+          },
+          {
+            "base": "B:\"Mountains in Mountain Chains\"=false",
+            "override": "B:\"Mountains in Mountain Chains\"=true"
+          },
+          {
+            "base": "I:bandedClimateWidth=-1",
+            "override": "I:bandedClimateWidth=1"
+          },
+          {
+            "base": "I:\"Incidence of Continents,Large\"=40",
+            "override": "I:\"Incidence of Continents,Large\"=100"
+          },
+          {
+            "base": "B:forceStartContinent=true",
+            "override": "B:forceStartContinent=true"
+          },
+          {
+            "base": "I:\"Incidence of Continents,Medium\"=100",
+            "override": "I:\"Incidence of Continents,Medium\"=70"
+          },
+          {
+            "base": "I:\"Incidence of Continents,Small\"=60",
+            "override": "I:\"Incidence of Continents,Small\"=50"
+          },
+          {
+            "base": "I:\"Incidence of Islands,Large\"=30",
+            "override": "I:\"Incidence of Islands,Large\"=0"
+          },
+          {
+            "base": "I:\"Incidence of Islands,Medium\"=15",
+            "override": "I:\"Incidence of Islands,Medium\"=0"
+          }
+
+        ]
+      },
+      {
+        "filepath": "config/GregTech/Pollution.cfg",
+        "changes": [
+          {
+            "base": "B:\"Activate Pollution\"=true",
+            "override": "B:\"Activate Pollution\"=false"
+          }
+        ]
+      },
+      {
+        "filepath": "serverutilities/serverutilities.cfg",
+        "changes": [
+          {
+            "base": "I:backups_to_keep=12",
+            "override": "I:backups_to_keep="
+          },
+          {
+            "base": "B:need_online_players=true",
+            "override": "B:need_online_players=true"
+          },
+          {
+            "base": "B:home=false",
+            "override": "B:home=true"
+          },
+          {
+            "base": "B:enabled=false",
+            "override": "B:enabled=true"
+          },
+
+          {
+            "base": "B:chunk_claiming=false",
+            "override": "B:chunk_claiming=true"
+          }
+        ]
+      },
+      {
+        "filepath": "serverutilities/server/ranks.txt",
+        "changes": [
+          {
+            "base": "serverutilities.claims.max_chunks: 1000",
+            "override": "serverutilities.claims.max_chunks: 10000"
+          },
+          {
+            "base": "serverutilities.chunkloader.max_chunks: 1000",
+            "override": "serverutilities.chunkloader.max_chunks: 10000"
+          },
+          {
+            "base": "serverutilities.homes.cross_dim: false",
+            "override": "serverutilities.homes.cross_dim: true"
+          }
+        ]
+      },
+      {
+        "filepath": "config/OpenBlocks.cfg",
+        "changes": [
+          {
+            "base": "B:ignoreAllBlocks=false",
+            "override": "B:ignoreAllBlocks=true"
+          }
+        ]
+      },
+      {
+        "filepath": "config/StorageDrawers.cfg",
+        "changes": [
+          {
+            "base": "I:maxDrawers=50",
+            "override": "I:maxDrawers=200"
+          },
+          {
+            "base": "I:range=4",
+            "override": "I:range=10"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "target": "client",
+    "GTNHVersion": "2.7.4",
+    "patches": []
+  }
+]

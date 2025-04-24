@@ -1,0 +1,30 @@
+[
+  {
+    "target": "server",
+    "GTNHVersion": "2.7.4",
+    "patches": [
+      {
+        "filepath": "test.txt",
+        "changes": [
+          {
+            "base": "I:maxDrawers=50",
+            "override": "I:maxDrawers=200"
+          },
+          {
+            "base": "I:range=4",
+            "override": "I:range=10"
+          },
+          {
+            "base": "foo",
+            "override": "bar"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "target": "client",
+    "GTNHVersion": "2.7.4",
+    "patches": []
+  }
+]
