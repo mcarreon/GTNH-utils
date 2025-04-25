@@ -126,7 +126,7 @@
         "changes": [
           {
             "base": "I:backups_to_keep=12",
-            "override": "I:backups_to_keep="
+            "override": "I:backups_to_keep=8"
           },
           {
             "base": "B:need_online_players=true",

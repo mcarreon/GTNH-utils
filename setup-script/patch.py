@@ -1,6 +1,29 @@
-import shutil, re
+import shutil, re, json
 
+from pathlib import Path
 from utils import *
+
+def apply_patches(options, config_path):
+    with open(config_path, 'r', encoding='utf-8') as data:
+        patch_config = json.load(data)
+
+    for target in patch_config:
+        print_color(f'###### starting patching for {target['target']} ######', 'green')
+
+        if len(target['patches']) == 0 or target.get('patches', {}) == {}:
+            print_color(f'no patches found for {target['target']}', 'red')
+            continue
+
+        for patch in target['patches']:
+            workdir = options.get_workdir(target['target'])
+            patch_path = Path(f'{workdir}/{patch["filepath"]}')
+            print(f'patching file at path: {patch_path}')
+
+            if not patch_path.exists():
+                print_color(f'could not find file at patch: {patch_path}', 'red')
+                continue
+
+            patch_cfg(patch_path, patch['changes'])
 
 def patch_cfg(patch_path, changes):
     # save a backup
@@ -34,6 +57,8 @@ def patch_cfg(patch_path, changes):
             }
 
             if base in line and base != override:
+
+
                 if not line_modified:
                     new_lines.append(f"{indent}##### patched by script ######\n")
                     line_modified = True
