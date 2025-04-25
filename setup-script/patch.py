@@ -8,7 +8,7 @@ def apply_patches(options, config_path):
         patch_config = json.load(data)
 
     for target in patch_config:
-        print_color(f'###### starting patching for {target['target']} ######', 'green')
+        print_color(f'###### starting patching for {target['target']} ######', 'blue')
 
         if len(target['patches']) == 0 or target.get('patches', {}) == {}:
             print_color(f'no patches found for {target['target']}', 'red')

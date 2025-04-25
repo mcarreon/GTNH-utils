@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from unittest import case
 
 
 @dataclass
@@ -11,6 +10,7 @@ class Options:
     should_install_mods: bool
     should_install_shaders: bool
     should_install_resource_packs: bool
+    should_apply_journeymap_unlimited: bool
 
     def get_workdir(self, target):
         match target:
@@ -29,6 +29,7 @@ def get_options():
     should_install_mods = get_boolean_input("Should the script install utility mods (y/n): ")
     should_install_shaders = get_boolean_input("Should the script install shaders (y/n): ")
     should_install_resource_packs = get_boolean_input("Should the script install resource packs (y/n): ")
+    should_apply_journeymap_unlimited = get_boolean_input("Should the script apply journeymap unlimited (y/n): ")
 
     options = Options(
         server_workdir,
@@ -36,7 +37,8 @@ def get_options():
         should_patch_configs,
         should_install_mods,
         should_install_shaders,
-        should_install_resource_packs
+        should_install_resource_packs,
+        should_apply_journeymap_unlimited
     )
 
     return options
