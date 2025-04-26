@@ -16,7 +16,7 @@ def apply_patches(options, config_path):
 
         for patch in target['patches']:
             workdir = options.get_workdir(target['target'])
-            patch_path = Path(f'{workdir}/{patch["filepath"]}')
+            patch_path = workdir.joinpath(patch['filepath'])
             print(f'patching file at path: {patch_path}')
 
             if not patch_path.exists():
