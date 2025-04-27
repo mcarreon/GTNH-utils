@@ -1,8 +1,23 @@
 {
   "patch_path": "./config/patch_config.json",
   "mod_path": "./mods-to-install",
+  "shaders_path": "./shaders",
+  "resourcepacks_path": "./resourcepacks",
 
   "journeymap_unlimited_path": "./journey-map-unlimited/journeymap-1.7.10-5.2.8-unlimited.jar",
   "journeymap_server_file": "JourneyMapServer1.0.5_MC1.7.10.jar",
-  "journeymap_client_file": "journeymap-1.7.10-5.2.8-fairplay.jar"
+  "journeymap_client_file": "journeymap-1.7.10-5.2.8-fairplay.jar",
+
+  "rwg": {
+      "patch": {
+        "filepath": "server.properties",
+        "changes": [
+          {
+            "base": "level-type=rwg",
+            "override": "level-type=rtg"
+          }
+        ]
+      },
+      "rwg_file": "RWG-alpha-1.5.0.jar"
+  }
 }

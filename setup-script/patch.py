@@ -57,8 +57,6 @@ def patch_cfg(patch_path, changes):
             }
 
             if base in line and base != override:
-
-
                 if not line_modified:
                     new_lines.append(f"{indent}##### patched by script ######\n")
                     line_modified = True
@@ -82,18 +80,8 @@ def patch_cfg(patch_path, changes):
         file.writelines(new_lines)
 
     for change in changes_made:
-        if not change['skipped']:
-            print_color(
-                f"🔧 Line {change['line_num']}: Successfully patched '{change['base']}'",
-                "cyan"
-            )
-            print_color(f"   ↳ Before: {change['original']}", "white")
-            print_color(f"   ↳ After:  {change['patched']}", "yellow")
-        else:
-            print_color(
-                f"⚠️ Line {change['line_num']}: Base '{change['base']}' is identical to '{change['override']}' and was skipped, check config'",
-                "magenta"
-            )
+        print_patch_log(change)
 
     for missing in unmatched_bases:
         print_color(f"❌ Base text not found: {missing}", "red")
+

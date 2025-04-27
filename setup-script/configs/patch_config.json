@@ -46,15 +46,6 @@
         ]
       },
       {
-        "filepath": "server.properties",
-        "changes": [
-          {
-            "base": "level-type=rwg",
-            "override": "level-type=rtg"
-          }
-        ]
-      },
-      {
         "filepath": "config/climatecontrol.cfg",
         "changes": [
           {

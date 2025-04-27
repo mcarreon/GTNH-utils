@@ -37,6 +37,12 @@ class Options:
 
         return Path(workdir).joinpath('mods')
 
+    def get_shaders_dest(self):
+        return Path(self.client_workdir).joinpath('shaders')
+
+    def get_resourcepacks_dest(self):
+        return Path(self.client_workdir).joinpath('resourcepacks')
+
 def get_options():
     server_workdir = input("Enter base directory of GTNH server installation: ")
     client_workdir = input("Enter base directory of GTNH client installation: ")
